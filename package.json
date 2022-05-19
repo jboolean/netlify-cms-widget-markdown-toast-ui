@@ -1,0 +1,101 @@
+{
+  "name": "julianboilen-base-app",
+  "version": "1.1.2",
+  "description": "Base app",
+  "main": "dist/app.bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack  --config webpack.prod.js",
+    "watch": "webpack serve --config webpack.dev.js",
+    "watch:hot": "webpack serve --config webpack.dev.js --hotOnly",
+    "lint": "eslint --ext .js --ext jsx --ext .ts --ext .tsx src",
+    "lint:strict": "eslint --ext .js --ext jsx --ext .ts --ext .tsx --max-warnings 0 src",
+    "lint:fix": "eslint --ext .js --ext jsx --ext .ts --ext .tsx --fix src",
+    "profile": "webpack --stats=detailed --json --config webpack.prod.js > dist/stats.json && webpack-bundle-analyzer dist/stats.json"
+  },
+  "keywords": [],
+  "author": "Julian Boilen",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "axios": "^0.21.2",
+    "classnames": "^2.3.1",
+    "core-js": "^3.17.2",
+    "lodash": "^4.17.21",
+    "normalize.css": "^8.0.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/preset-env": "^7.13.9",
+    "@babel/preset-react": "^7.12.10",
+    "@types/autoprefixer": "^10.2.0",
+    "@types/babel__core": "^7.1.19",
+    "@types/babel__preset-env": "^7.9.2",
+    "@types/copy-webpack-plugin": "^6.4.3",
+    "@types/core-js": "^2.5.5",
+    "@types/eslint": "^6.8.1",
+    "@types/eslint-plugin-prettier": "^3.1.0",
+    "@types/file-loader": "^5.0.1",
+    "@types/less": "^3.0.3",
+    "@types/lodash": "^4.14.182",
+    "@types/prettier": "^2.6.1",
+    "@types/react": "^16.14.26",
+    "@types/react-dom": "^18.0.4",
+    "@types/webpack-bundle-analyzer": "^4.4.1",
+    "@types/webpack-dev-server": "^3.11.6",
+    "@types/webpack-merge": "^4.1.5",
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@typescript-eslint/parser": "^2.34.0",
+    "autoprefixer": "^9.8.6",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2",
+    "copy-webpack-plugin": "^6.4.0",
+    "css-loader": "^5.2.7",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-squarespace": "^1.0.1",
+    "eslint-import-resolver-webpack": "^0.13.1",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.28.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "husky": "^8.0.1",
+    "json-loader": "^0.5.7",
+    "less": "^4.1.2",
+    "less-loader": "^10.2.0",
+    "lint-staged": "^12.1.4",
+    "mini-css-extract-plugin": "^2.4.5",
+    "postcss-loader": "^4.1.0",
+    "prettier": "^2.5.1",
+    "react-hot-loader": "^4.13.0",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.2.3",
+    "webpack": "^5.52.0",
+    "webpack-bundle-analyzer": "^4.4.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^4.1.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix --max-warnings 0"
+    ],
+    "src/**/*.{less,css}": [
+      "prettier -w"
+    ]
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": "^14"
+  }
+}
