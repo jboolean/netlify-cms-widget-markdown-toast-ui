@@ -8,5 +8,4 @@ import App from './App';
 
 const containerEl = document.getElementById('app-container');
 
-
 ReactDOM.render(React.createElement(App), containerEl);

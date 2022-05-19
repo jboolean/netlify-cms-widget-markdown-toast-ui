@@ -1,23 +1,18 @@
 {
-  "extends": ["squarespace",
+  "extends": [
+    "squarespace",
     "squarespace/react",
     "prettier",
     "plugin:prettier/recommended",
-    
-    "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
+
     "prettier/react"
   ],
-  "parser": "@typescript-eslint/parser",
   "env": {
     "browser": true,
     "mocha": true,
     "node": true
   },
-  "plugins": [
-    "react",
-    "@typescript-eslint"
-  ],
+  "plugins": ["react"],
   "globals": {
     "__DEV__": true
   },
@@ -35,10 +30,13 @@
   "overrides": [
     {
       // enable the rule specifically for TypeScript files
-      "files": [
-        "*.ts",
-        "*.tsx"
+      "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "prettier/@typescript-eslint"
       ],
+      "parser": "@typescript-eslint/parser",
+      "files": ["*.ts", "*.tsx"],
+      "plugins": ["@typescript-eslint"],
       "rules": {
         "@typescript-eslint/explicit-function-return-type": [
           "error",
