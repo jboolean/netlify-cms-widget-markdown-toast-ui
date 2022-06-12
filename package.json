@@ -1,8 +1,8 @@
 {
-  "name": "netlify-cms-widget-markdown-toast",
-  "version": "1.1.2",
+  "name": "netlify-cms-widget-markdown-toast-ui",
+  "version": "0.0.1",
   "description": "Base app",
-  "main": "dist/app.bundle.js",
+  "main": "dist/library.bundle.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack  --config webpack.prod.js",
@@ -11,10 +11,11 @@
     "lint": "eslint --ext .js --ext jsx --ext .ts --ext .tsx src",
     "lint:strict": "eslint --ext .js --ext jsx --ext .ts --ext .tsx --max-warnings 0 src",
     "lint:fix": "eslint --ext .js --ext jsx --ext .ts --ext .tsx --fix src",
-    "profile": "webpack --stats=detailed --json --config webpack.prod.js > dist/stats.json && webpack-bundle-analyzer dist/stats.json"
+    "profile": "webpack --stats=detailed --json --config webpack.prod.js > dist/stats.json && webpack-bundle-analyzer dist/stats.json",
+    "publish": "np"
   },
   "keywords": [],
-  "author": "Julian Boilen",
+  "author": "Julian Boilen (http://julianboilen.com)",
   "license": "UNLICENSED",
   "dependencies": {
     "@toast-ui/react-editor": "^3.1.7",
@@ -66,6 +67,7 @@
     "less-loader": "^10.2.0",
     "lint-staged": "^12.1.4",
     "mini-css-extract-plugin": "^2.4.5",
+    "np": "^7.6.1",
     "postcss-loader": "^4.1.0",
     "prettier": "^2.5.1",
     "react-hot-loader": "^4.13.0",
