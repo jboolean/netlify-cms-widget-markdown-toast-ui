@@ -7,28 +7,35 @@ import { Editor as ToastUiEditor } from '@toast-ui/editor';
 import NetlifyCmsWidgetProps from 'NetlifyCmsWidget';
 import defaultOptions from 'defaultOptions';
 
-export default function NetlifyCmsMarkdownToastWidget(
-  props: NetlifyCmsWidgetProps & { options?: EditorProps }
-): JSX.Element {
-  const { value, options = {}, onChange, classNameWrapper } = props;
+export default class NetlifyCmsWidgetMarkdownToastUi extends React.Component<
+  NetlifyCmsWidgetProps & { options?: EditorProps }
+> {
+  editorRef: React.RefObject<Editor>;
+  constructor(props: NetlifyCmsWidgetProps & { options?: EditorProps }) {
+    super(props);
 
-  const editorRef = React.useRef<Editor>();
+    this.editorRef = React.createRef<Editor>();
+  }
 
-  const getInstance = (): ToastUiEditor => {
-    if (!editorRef.current) throw new Error('editor missing');
-    return editorRef.current.getInstance();
-  };
+  getEditorInstance(): ToastUiEditor {
+    if (!this.editorRef.current) throw new Error('editor missing');
+    return this.editorRef.current.getInstance();
+  }
 
-  return (
-    <div className={classNameWrapper}>
-      <Editor
-        ref={editorRef}
-        initialValue={value}
-        onChange={() => {
-          onChange(getInstance().getMarkdown());
-        }}
-        {...Object.assign({}, defaultOptions, options)}
-      />
-    </div>
-  );
+  render(): JSX.Element {
+    const { value, options = {}, onChange, classNameWrapper } = this.props;
+
+    return (
+      <div className={classNameWrapper}>
+        <Editor
+          ref={this.editorRef}
+          initialValue={value}
+          onChange={() => {
+            onChange(this.getEditorInstance().getMarkdown());
+          }}
+          {...Object.assign({}, defaultOptions, options)}
+        />
+      </div>
+    );
+  }
 }
