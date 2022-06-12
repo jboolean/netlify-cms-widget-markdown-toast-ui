@@ -6,7 +6,13 @@ const path = require('path');
 
 // Webpack configuration
 module.exports = merge(common, {
-  entry: ['react-hot-loader/patch'],
+  entry: {
+    hot: 'react-hot-loader/patch',
+    demo: {
+      import: path.join(path.resolve(__dirname, 'src'), 'index.ts'),
+      dependOn: 'library',
+    },
+  },
   devtool: 'inline-source-map',
   optimization: {
     moduleIds: 'named',
@@ -20,5 +26,7 @@ module.exports = merge(common, {
     }),
   ],
 
-  devServer: {},
+  devServer: {
+    port: '8081',
+  },
 });

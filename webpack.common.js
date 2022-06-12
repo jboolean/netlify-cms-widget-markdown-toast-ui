@@ -12,11 +12,17 @@ const paths = {
 
 // Webpack configuration
 module.exports = {
-  entry: [path.join(paths.SRC, 'index.ts')],
+  entry: {
+    library: path.join(paths.SRC, 'NetlifyCmsWidgetMarkdownToastUi.tsx'),
+  },
   output: {
     path: paths.DIST,
-    filename: 'app.bundle.js',
+    filename: '[name].bundle.js',
     publicPath: '/',
+    library: {
+      name: 'NetlifyCmsWidgetMarkdownToastUi',
+      type: 'umd',
+    },
   },
   plugins: [
     new MiniCssExtractPlugin({
