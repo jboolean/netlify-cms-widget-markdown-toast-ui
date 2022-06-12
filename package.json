@@ -98,5 +98,8 @@
   ],
   "engines": {
     "node": "^14"
+  },
+  "np": {
+    "tests": false
   }
 }
