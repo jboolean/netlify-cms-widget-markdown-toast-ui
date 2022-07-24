@@ -26,7 +26,7 @@ export default class NetlifyCmsWidgetMarkdownToastUi extends React.Component<
     const { value, options = {}, onChange, classNameWrapper } = this.props;
 
     return (
-      <div className={classNameWrapper}>
+      <div className={classNameWrapper} style={{ padding: 0 }}>
         <Editor
           ref={this.editorRef}
           initialValue={value}

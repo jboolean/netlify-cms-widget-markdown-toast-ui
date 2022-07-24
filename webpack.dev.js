@@ -9,7 +9,7 @@ module.exports = merge(common, {
   entry: {
     hot: 'react-hot-loader/patch',
     demo: {
-      import: path.join(path.resolve(__dirname, 'src'), 'index.ts'),
+      import: path.join(path.resolve(__dirname, 'src'), 'dev', 'index.js'),
       dependOn: 'library',
     },
   },
