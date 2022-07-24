@@ -1,7 +1,7 @@
 import { EditorProps } from '@toast-ui/react-editor';
 
 const defaultOptions: Partial<EditorProps> = {
-  minHeight: '300px',
+  minHeight: '600px',
   previewStyle: 'tab',
   initialEditType: 'wysiwyg',
 };
