@@ -1,6 +1,6 @@
 {
   "name": "netlify-cms-widget-markdown-toast-ui",
-  "version": "0.0.2-6",
+  "version": "0.0.2-7",
   "description": "Base app",
   "main": "dist/library.bundle.js",
   "scripts": {
@@ -101,9 +101,6 @@
   "files": [
     "dist"
   ],
-  "engines": {
-    "node": "^14"
-  },
   "np": {
     "tests": false
   }
